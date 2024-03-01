@@ -1,8 +1,10 @@
+import { Container } from './style';
+
 const MyApp = () => {
   return (
-    <div>
+    <Container className='ma-ta'>
       <h1>My App</h1>
-    </div>
+    </Container>
   );
 };
 

@@ -1,0 +1,10 @@
+body{
+  background-color: white;
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent 10px,
+    #cccccc 10px,
+    #cccccc 20px
+  );
+}
