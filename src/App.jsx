@@ -1,8 +1,8 @@
 const MyApp = () => {
   return (
-    <main>
+    <header>
       <h1>My First React App</h1>
-    </main>
+    </header>
   );
 };
 
