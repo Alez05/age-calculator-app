@@ -22,6 +22,16 @@ const MyApp = () => {
             <small className='error-month'></small>
           </p>
         </div>
+        <div className='input-container'>
+          <span>Year</span>
+          <input
+            type='number'
+            id='year'
+          />
+          <p>
+            <small className='error-year'></small>
+          </p>
+        </div>
       </div>
     </div>
   );
