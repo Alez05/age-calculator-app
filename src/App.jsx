@@ -33,6 +33,25 @@ const MyApp = () => {
           </p>
         </div>
       </div>
+      <div className='button-content'>
+        <button className='submit-btn'>
+          <img
+            src='/images/icon-arrow.svg'
+            alt='arrow'
+          />
+        </button>
+      </div>
+      <div className='age-container'>
+        <h1>
+          <span className='output-day'> -- </span> day{' '}
+        </h1>
+        <h1>
+          <span className='output-month'> -- </span> month{' '}
+        </h1>
+        <h1>
+          <span className='output-year'> -- </span> year{' '}
+        </h1>
+      </div>
     </div>
   );
 };

@@ -1,17 +1,67 @@
+*,
+*::before {
+  box-sizing: border-box;
+  margin: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body{
-  background-color: white;
-  background-image: repeating-linear-gradient(
-    to left,
-    transparent,
-    transparent 10px,
-    #cccccc 10px,
-    #cccccc 20px
-  );
+
+}
+
+:root {
+  --Purple: hsl(259, 100%, 65%);
+  --Light-red: hsl(0, 100%, 67%);
+  --White: hsl(0, 0%, 100%);
+  --Off-white: hsl(0, 0%, 94%);
+  --Light-grey: hsl(0, 0%, 86%);
+  --Smokey-grey: hsl(0, 1%, 44%);
+  --Off-black: hsl(0, 0%, 8%);
+
+  font-size: 2rem;
+  font-family: Poppins, sans-serif;
+
 }
 
 .container{
-  display: flex;
+  display: grid;
   justify-content: center;
+  height: 651px;
+  width: 840px;
+
+  padding: 56px;
+}
+
+.input-flex {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  margin-bottom: 24px;
+  gap: 1rem;
+}
+
+.input-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.button-content {
+  display: flex;
+  position: relative;
+  left: 300px;
+}
+
+.submit-btn {
+  background-color: var(--Purple);
+  color: var(--White);
+  padding: 16px 32px;
+  border: none;
+  border-radius: 60%; /* Make the button a circle */
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
 }
