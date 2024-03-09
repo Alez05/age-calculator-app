@@ -41,7 +41,7 @@ const MyApp = () => {
           />
         </button>
       </div>
-      <div className='age-container'>
+      <div className='result-age'>
         <h1>
           <span className='output-day'> -- </span> day{' '}
         </h1>

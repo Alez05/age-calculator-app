@@ -57,11 +57,20 @@ body{
 .submit-btn {
   background-color: var(--Purple);
   color: var(--White);
-  padding: 16px 32px;
   border: none;
-  border-radius: 60%; /* Make the button a circle */
+  border-radius: 50%; /* Make the button a circle */
   cursor: pointer;
-  font-size: 1.5rem;
-  font-weight: 700;
   transition: background-color 0.3s ease;
+  width: 96px;
+  height: 96px;
 }
+
+.result-age {
+  color: var(--Off-black);
+}
+
+.result-age h1 {
+  display: flex;
+  gap: 50px;
+}
+
