@@ -74,3 +74,6 @@ body{
   gap: 50px;
 }
 
+.output-day, .output-month, .output-year {
+  color: var(--Purple);
+}
