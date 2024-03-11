@@ -9,7 +9,7 @@ html {
 }
 
 body{
-
+background-color: var(--Light-grey);
 }
 
 :root {
@@ -31,8 +31,11 @@ body{
   justify-content: center;
   height: 651px;
   width: 840px;
-
+  background-color: var(--White);
   padding: 56px;
+
+
+  border-bottom-right-radius: 12px;
 }
 
 .input-flex {
