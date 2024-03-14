@@ -17,6 +17,8 @@ const MyApp = () => {
       return;
     }
 
+    let valid = true;
+
     const currentDate = new Date();
     const inputDate = new Date(`${year}-${month}-${day}`);
 
