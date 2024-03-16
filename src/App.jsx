@@ -12,24 +12,21 @@ const MyApp = () => {
   });
 
   const calculateAge = () => {
-    if (!day || !month || !year) {
-      setError('');
-      return;
-    }
-
-    let valid = true;
-
+    let isValid = true;
     const currentDate = new Date();
     const inputDate = new Date(`${year}-${month}-${day}`);
 
-    let ageDifference = currentDate.getTime() - inputDate.getTime();
+    if (!day) {
+      setError({ ...error, day: 'Must be a valid day' });
+    } else if (!month) {
+      setError({ ...error, month: 'Must be a valid month' });
+    }
 
-    const ageDate = new Date(ageDifference);
-    const years = Math.abs(ageDate.getUTCFullYear() - 1970);
-    const months = ageDate.getUTCMonth();
+    const ageDate = new Date(currentDate - inputDate);
+    const year = Math.abs(ageDate.getUTCFullYear() - 1970);
+    const month = ageDate.getUTCMonth();
     const days = ageDate.getUTCDate() - 1;
-
-    setResult({ years, months, days });
+    setResult({ year, month, days });
   };
   return (
     <div className='container'>
@@ -41,9 +38,10 @@ const MyApp = () => {
             id='day'
             value={day}
             onChange={(e) => setDay(e.target.value)}
+            placeholder='DD'
           />
           <p>
-            <small className='error-day'>{error} </small>
+            <small className='error-day'>{error.day}</small>
           </p>
         </div>
         <div className='input-container'>
@@ -53,9 +51,10 @@ const MyApp = () => {
             id='month'
             value={month}
             onChange={(e) => setMonth(e.target.value)}
+            placeholder='MM'
           />
           <p>
-            <small className='error-month'>{error}</small>
+            <small className='error-month'>{error.month}</small>
           </p>
         </div>
         <div className='input-container'>
@@ -65,9 +64,10 @@ const MyApp = () => {
             id='year'
             value={year}
             onChange={(e) => setYear(e.target.value)}
+            placeholder='YYYY'
           />
           <p>
-            <small className='error-year'>{error}</small>
+            <small className='error-year'>{error.year}</small>
           </p>
         </div>
       </div>
@@ -88,7 +88,7 @@ const MyApp = () => {
             htmlFor='year'
             className='output-year'
           >
-            {result && result.years}
+            -- {result && result.year}
           </label>
           year
         </h1>
@@ -98,7 +98,7 @@ const MyApp = () => {
             htmlFor='month'
             className='output-month'
           >
-            {result && result.months}
+            -- {result && result.month}
           </label>
           month
         </h1>
@@ -108,7 +108,7 @@ const MyApp = () => {
             htmlFor='day'
             className='output-day'
           >
-            {result && result.days}
+            -- {result && result.days}
           </label>
           day
         </h1>
