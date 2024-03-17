@@ -20,6 +20,8 @@ const MyApp = () => {
       setError({ ...error, day: 'Must be a valid day' });
     } else if (!month) {
       setError({ ...error, month: 'Must be a valid month' });
+    } else if (!year) {
+      setError({ ...error, year: 'Must be a valid year' });
     }
 
     const ageDate = new Date(currentDate - inputDate);
