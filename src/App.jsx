@@ -5,31 +5,67 @@ const MyApp = () => {
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
   const [result, setResult] = useState(null);
-  const [error, setError] = useState({
-    day: '',
-    month: '',
-    year: '',
-  });
+  const [error, setError] = useState({ day: '', month: '', year: '' });
+
+  const isDateValid = (year, month, day) => {
+    const inputDate = new Date(year, month - 1, day);
+    return (
+      inputDate.getFullYear() == year &&
+      inputDate.getMonth() + 1 == month &&
+      inputDate.getDate() == day
+    );
+  };
 
   const calculateAge = () => {
     let isValid = true;
     const currentDate = new Date();
-    const inputDate = new Date(`${year}-${month}-${day}`);
+    const inputDate = new Date(year, month - 1, day); // Adjusted to use the JavaScript Date constructor directly.
+    const newError = { day: '', month: '', year: '' };
 
-    if (!day) {
-      setError({ ...error, day: 'Must be a valid day' });
-    } else if (!month) {
-      setError({ ...error, month: 'Must be a valid month' });
-    } else if (!year) {
-      setError({ ...error, year: 'Must be a valid year' });
+    // Input validation
+    if (!day.trim()) {
+      newError.day = 'This field is required';
+      isValid = false;
+    } else if (day < 1 || day > 31) {
+      newError.day = 'Must be a valid day';
+      isValid = false;
     }
 
-    const ageDate = new Date(currentDate - inputDate);
-    const year = Math.abs(ageDate.getUTCFullYear() - 1970);
-    const month = ageDate.getUTCMonth();
-    const days = ageDate.getUTCDate() - 1;
-    setResult({ year, month, days });
+    if (!month.trim()) {
+      newError.month = 'This field is required';
+      isValid = false;
+    } else if (month < 1 || month > 12) {
+      newError.month = 'Must be a valid month';
+      isValid = false;
+    }
+
+    if (!year.trim()) {
+      newError.year = 'This field is required';
+      isValid = false;
+    } else if (year < 1970 || year > currentDate.getFullYear()) {
+      newError.year = 'Must be a valid year';
+      isValid = false;
+    }
+
+    // Check if date is valid
+    if (!isDateValid(year, month, day)) {
+      newError.day = 'Must be a valid date';
+      isValid = false;
+    }
+
+    setError(newError); // Update the error state here, after all validations.
+
+    if (isValid) {
+      const ageDate = new Date(currentDate - inputDate);
+      const years = Math.abs(ageDate.getUTCFullYear() - 1970);
+      const months = ageDate.getUTCMonth();
+      const days = ageDate.getUTCDate() - 1;
+      setResult({ year: years, month: months, days });
+    } else {
+      setResult(null);
+    }
   };
+
   return (
     <div className='container'>
       <div className='input-flex'>
@@ -90,7 +126,7 @@ const MyApp = () => {
             htmlFor='year'
             className='output-year'
           >
-            -- {result && result.year}
+            {result && result.year}
           </label>
           year
         </h1>
@@ -100,7 +136,7 @@ const MyApp = () => {
             htmlFor='month'
             className='output-month'
           >
-            -- {result && result.month}
+            {result && result.month}
           </label>
           month
         </h1>
@@ -110,7 +146,7 @@ const MyApp = () => {
             htmlFor='day'
             className='output-day'
           >
-            -- {result && result.days}
+            {result && result.days}
           </label>
           day
         </h1>
