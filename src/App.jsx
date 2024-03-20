@@ -24,32 +24,32 @@ const MyApp = () => {
 
     // Input validation
     if (!day.trim()) {
-      newError.day = 'This field is required';
+      newError.day = 'This field is required'; // when field is empty
       isValid = false;
     } else if (day < 1 || day > 31) {
-      newError.day = 'Must be a valid day';
+      newError.day = 'Must be a valid day'; // when day is not between 1 and 31
       isValid = false;
     }
 
     if (!month.trim()) {
-      newError.month = 'This field is required';
+      newError.month = 'This field is required'; // when field is empty
       isValid = false;
     } else if (month < 1 || month > 12) {
-      newError.month = 'Must be a valid month';
+      newError.month = 'Must be a valid month'; // when month is not between 1 and 12
       isValid = false;
     }
 
     if (!year.trim()) {
-      newError.year = 'This field is required';
+      newError.year = 'This field is required'; // when field is empty
       isValid = false;
     } else if (year < 1970 || year > currentDate.getFullYear()) {
-      newError.year = 'Must be a valid year';
+      newError.year = 'Must be a valid year'; // when year is not between 1970 and current year
       isValid = false;
     }
 
     // Check if date is valid
     if (!isDateValid(year, month, day)) {
-      newError.day = 'Must be a valid date';
+      newError.day = 'Must be a valid date'; // when date is not valid
       isValid = false;
     }
 

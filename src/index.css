@@ -88,6 +88,10 @@ input:focus {
   border: 2px solid hsl(259deg 100% 65%);
 }
 
+input:checked {
+  color: var(--Light-red);
+}
+
 .error-day, .error-month, .error-year {
   color: var(--Light-red);
   font-size: 8px;
