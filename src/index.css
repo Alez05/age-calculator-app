@@ -90,6 +90,7 @@ input:focus {
 
 input:checked {
   color: var(--Light-red);
+  background-color: aliceblue;
 }
 
 .error-day, .error-month, .error-year {
