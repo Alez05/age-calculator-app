@@ -49,7 +49,7 @@ height: 100vh;
   display: flex;
   justify-content: flex-start;
   width: 728px;
-  height: 101px;
+  height: auto;
   gap: 1rem;
   margin-bottom: 0px;
 }
@@ -57,9 +57,9 @@ height: 100vh;
 .input-container {
   display: flex;
   flex-direction: column;
-  height: 101px;
   width: 160px;
   margin: 0px;
+  transition: height 0.3s ease;
 }
 
 .input-text {
@@ -75,6 +75,7 @@ input {
   width: 160px;
   height: 72px;
   margin: 0px;
+  margin-bottom: 8px;
   border-radius: 8px;
   border: 2px solid var(--Smokey-grey);
   color: var(--Off-black);
@@ -88,14 +89,26 @@ input:focus {
   border: 2px solid hsl(259deg 100% 65%);
 }
 
-input:checked {
+/* Error styles */
+
+.input-flex_error {
+  height: 130px;
+}
+
+.error-input {
+  border: 1px solid var(--Light-red);
+}
+
+.error-text {
   color: var(--Light-red);
-  background-color: aliceblue;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 4px;
 }
 
 .error-day, .error-month, .error-year {
   color: var(--Light-red);
-  font-size: 8px;
+  font-size: 0.33rem;
   font-weight: 700;
   letter-spacing: 2px;
   margin: 0px;

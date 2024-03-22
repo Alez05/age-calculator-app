@@ -6,6 +6,7 @@ const MyApp = () => {
   const [year, setYear] = useState('');
   const [result, setResult] = useState(null);
   const [error, setError] = useState({ day: '', month: '', year: '' });
+  const [isError, setIsError] = useState(false);
 
   const isDateValid = (year, month, day) => {
     const inputDate = new Date(year, month - 1, day);
@@ -23,7 +24,7 @@ const MyApp = () => {
     const newError = { day: '', month: '', year: '' };
 
     // Input validation
-    if (!day.trim()) {
+    if (!day) {
       newError.day = 'This field is required'; // when field is empty
       isValid = false;
     } else if (day < 1 || day > 31) {
@@ -31,7 +32,7 @@ const MyApp = () => {
       isValid = false;
     }
 
-    if (!month.trim()) {
+    if (!month) {
       newError.month = 'This field is required'; // when field is empty
       isValid = false;
     } else if (month < 1 || month > 12) {
@@ -39,7 +40,7 @@ const MyApp = () => {
       isValid = false;
     }
 
-    if (!year.trim()) {
+    if (!year) {
       newError.year = 'This field is required'; // when field is empty
       isValid = false;
     } else if (year < 1970 || year > currentDate.getFullYear()) {
@@ -48,7 +49,7 @@ const MyApp = () => {
     }
 
     // Check if date is valid
-    if (!isDateValid(year, month, day)) {
+    if (isValid && !isDateValid(year, month, day)) {
       newError.day = 'Must be a valid date'; // when date is not valid
       isValid = false;
     }
@@ -70,43 +71,46 @@ const MyApp = () => {
     <div className='container'>
       <div className='input-flex'>
         <div className='input-container'>
-          <span className='input-text'>Day</span>
+          <span className={`input-text ${error.day ? 'error-text' : ''}`}>
+            Day
+          </span>
           <input
             type='number'
             id='day'
             value={day}
+            className={`${error.day ? 'error-input' : ''}`}
             onChange={(e) => setDay(e.target.value)}
             placeholder='DD'
           />
-          <p>
-            <small className='error-day'>{error.day}</small>
-          </p>
+          <p className='error-day'>{error.day}</p>
         </div>
         <div className='input-container'>
-          <span className='input-text'>Month</span>
+          <span className={`input-text ${error.day ? 'error-text' : ''}`}>
+            Month
+          </span>
           <input
             type='number'
             id='month'
+            className={`${error.day ? 'error-input' : ''}`}
             value={month}
             onChange={(e) => setMonth(e.target.value)}
             placeholder='MM'
           />
-          <p>
-            <small className='error-month'>{error.month}</small>
-          </p>
+          <p className='error-month'>{error.month}</p>
         </div>
         <div className='input-container'>
-          <span className='input-text'>Year</span>
+          <span className={`input-text ${error.day ? 'error-text' : ''}`}>
+            Year
+          </span>
           <input
             type='number'
             id='year'
             value={year}
+            className={`${error.day ? 'error-input' : ''}`}
             onChange={(e) => setYear(e.target.value)}
             placeholder='YYYY'
           />
-          <p>
-            <small className='error-year'>{error.year}</small>
-          </p>
+          <p className='error-year'>{error.year}</p>
         </div>
       </div>
       <div className='button-content'>
