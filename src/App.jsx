@@ -24,8 +24,10 @@ const MyApp = () => {
     const newError = { day: '', month: '', year: '' };
 
     // Input validation
+
+
     if (!day) {
-      newError.day = 'This field is required'; // when field is empty
+      newError.day = 'This field is required'; // when field is empty 
       isValid = false;
     } else if (day < 1 || day > 31) {
       newError.day = 'Must be a valid day'; // when day is not between 1 and 31
