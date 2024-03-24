@@ -6,7 +6,6 @@ const MyApp = () => {
   const [year, setYear] = useState('');
   const [result, setResult] = useState(null);
   const [error, setError] = useState({ day: '', month: '', year: '' });
-  const [isError, setIsError] = useState(false);
 
   const isDateValid = (year, month, day) => {
     const inputDate = new Date(year, month - 1, day);
@@ -20,14 +19,13 @@ const MyApp = () => {
   const calculateAge = () => {
     let isValid = true;
     const currentDate = new Date();
-    const inputDate = new Date(year, month - 1, day); // Adjusted to use the JavaScript Date constructor directly.
+    const inputDate = new Date(year, month - 1, day); // month is 0 indexed
     const newError = { day: '', month: '', year: '' };
 
     // Input validation
 
-
     if (!day) {
-      newError.day = 'This field is required'; // when field is empty 
+      newError.day = 'This field is required'; // when field is empty
       isValid = false;
     } else if (day < 1 || day > 31) {
       newError.day = 'Must be a valid day'; // when day is not between 1 and 31
@@ -70,8 +68,8 @@ const MyApp = () => {
   };
 
   return (
-    <div className='container'>
-      <div className='input-flex'>
+    <main className='container'>
+      <header className='input-flex'>
         <div className='input-container'>
           <span className={`input-text ${error.day ? 'error-text' : ''}`}>
             Day
@@ -114,7 +112,7 @@ const MyApp = () => {
           />
           <p className='error-year'>{error.year}</p>
         </div>
-      </div>
+      </header>
       <div className='button-content'>
         <button
           className='submit-btn'
@@ -126,13 +124,14 @@ const MyApp = () => {
           />
         </button>
       </div>
+      <span className='border-bottom'></span>
       <div className='result-age'>
         <h1>
           <label
             htmlFor='year'
             className='output-year'
           >
-            {result && result.year}
+            {result ? result.year : '- -'}
           </label>
           year
         </h1>
@@ -142,7 +141,7 @@ const MyApp = () => {
             htmlFor='month'
             className='output-month'
           >
-            {result && result.month}
+            {result ? result.month : '- -'}
           </label>
           month
         </h1>
@@ -152,12 +151,12 @@ const MyApp = () => {
             htmlFor='day'
             className='output-day'
           >
-            {result && result.days}
+            {result ? result.days : '- -'}
           </label>
           day
         </h1>
       </div>
-    </div>
+    </main>
   );
 };
 
