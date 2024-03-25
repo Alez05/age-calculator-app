@@ -72,7 +72,7 @@ const MyApp = () => {
       <header className='input-flex'>
         <div className='input-container'>
           <span className={`input-text ${error.day ? 'error-text' : ''}`}>
-            Day
+            DAY
           </span>
           <input
             type='number'
@@ -86,7 +86,7 @@ const MyApp = () => {
         </div>
         <div className='input-container'>
           <span className={`input-text ${error.day ? 'error-text' : ''}`}>
-            Month
+            MONTH
           </span>
           <input
             type='number'
@@ -100,7 +100,7 @@ const MyApp = () => {
         </div>
         <div className='input-container'>
           <span className={`input-text ${error.day ? 'error-text' : ''}`}>
-            Year
+            YEAR
           </span>
           <input
             type='number'
