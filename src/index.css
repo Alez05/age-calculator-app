@@ -192,9 +192,9 @@ input:focus {
     position: absolute;
   }
 
-  /* .input-container {
+  .input-container {
 
-  } */
+  }
 
   .input-text {
     font-size: 0.6rem;
