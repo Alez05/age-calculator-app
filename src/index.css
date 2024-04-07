@@ -16,8 +16,6 @@ align-items: center;
 height: 100vh;
 }
 
-
-
 :root {
   --Purple: hsl(259, 100%, 65%);
   --Light-red: hsl(0, 100%, 67%);
