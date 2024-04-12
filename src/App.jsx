@@ -124,7 +124,7 @@ const MyApp = () => {
           />
         </button>
       </div>
-      <span className='border-bottom'></span>
+      {/* <span className='border-bottom'></span> */}
       <div className='result-age'>
         <h1>
           <label
