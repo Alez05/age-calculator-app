@@ -17,9 +17,11 @@ const MyApp = () => {
     <main className='container'>
       <section className='input-flex'>
         <div className='input-container'>
+
           <span className={`input-text ${error.day ? 'error-text' : ''}`}>
             DAY
           </span>
+
           <input
             type='number'
             id='day'
@@ -30,10 +32,12 @@ const MyApp = () => {
           />
           <p className='error-day'>{error.day}</p>
         </div>
+
         <div className='input-container'>
           <span className={`input-text ${error.day ? 'error-text' : ''}`}>
             MONTH
           </span>
+
           <input
             type='number'
             id='month'
@@ -44,6 +48,7 @@ const MyApp = () => {
           />
           <p className='error-month'>{error.month}</p>
         </div>
+
         <div className='input-container'>
           <span className={`input-text ${error.day ? 'error-text' : ''}`}>
             YEAR
@@ -63,6 +68,7 @@ const MyApp = () => {
         <button
           className='submit-btn'
           onClick={calculateAge}
+          
         >
           <img
             src='/images/icon-arrow.svg'

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const AgeCalculatorLogic = () => {
   const [day, setDay] = useState('');
@@ -6,6 +6,28 @@ const AgeCalculatorLogic = () => {
   const [year, setYear] = useState('');
   const [result, setResult] = useState(null);
   const [error, setError] = useState({ day: '', month: '', year: '' });
+
+  useEffect(() => {
+    const button = document.querySelector('.submit-btn');
+
+    const handleButtonClick = () => {
+      calculateAge();
+    };
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        calculateAge();
+      }
+    };
+
+    button.addEventListener('click', handleButtonClick);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      button.removeEventListener('click', handleButtonClick);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [day, month, year]);
 
   const isDateValid = (year, month, day) => {
     const inputDate = new Date(year, month - 1, day);
