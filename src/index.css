@@ -64,7 +64,7 @@ height: 100vh;
 
 .input-text {
   color: var(--Smokey-grey);
-  font-size: 0.5rem;
+  font-size: 0.4rem;
   font-weight: 700;
   letter-spacing: 4px;
   margin: 0px;
@@ -139,7 +139,7 @@ input:focus {
 
 .result-age h1 {
   margin: 0px;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 800;
   font-style: italic;
 
