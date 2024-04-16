@@ -68,7 +68,7 @@ const MyApp = () => {
         <button
           className='submit-btn'
           onClick={calculateAge}
-          
+
         >
           <img
             src='/images/icon-arrow.svg'
@@ -95,7 +95,7 @@ const MyApp = () => {
           >
             {result ? result.month : '- -'}
           </label>
-          month
+          months
         </h1>
 
         <h1>
